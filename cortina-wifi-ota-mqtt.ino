@@ -531,8 +531,8 @@ void setup() {
 
   if (SPIFFS.begin()) {
     Serial.println("mounted file system");
-    SPIFFS.remove("/config.json");
-    wifiManager.resetSettings(); 
+    //SPIFFS.remove("/config.json");
+    //wifiManager.resetSettings(); 
     if (SPIFFS.exists("/config.json")) {
       //file exists, reading and loading
       Serial.println("reading config file");
