@@ -215,15 +215,17 @@ void reconnect() {
   while (!client.connected() ){
     Serial.print("Attempting MQTT connection...");
     // Create a random client ID
-    String clientId = nombrehost;
-    clientId += String(random(0xffff), HEX);
+    //String clientId = nombrehost;
+    //clientId += String(WiFi.macAddress());
+    String clientId = "ESP8266Client-";
+    clientId += String(WiFi.macAddress());
     // Attempt to connect
     if (client.connect(clientId.c_str(),mqtt_user, mqtt_pass)) {
       Serial.println("connected");
       // Once connected, publish an announcement...
-      client.publish("outTopic", "hello world");
+      //client.publish("tema_pub", "hello world");
       // ... and resubscribe
-      client.subscribe("inTopic");
+      client.subscribe("tema_sub");
       sinwifi = false;
     } else {
       Serial.print("failed, rc=");
