@@ -225,7 +225,7 @@ void reconnect() {
       // Once connected, publish an announcement...
       //client.publish("tema_pub", "hello world");
       // ... and resubscribe
-      client.subscribe("tema_sub");
+      client.subscribe(tema_sub);
       sinwifi = false;
     } else {
       Serial.print("failed, rc=");
